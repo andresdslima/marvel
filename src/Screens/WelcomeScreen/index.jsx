@@ -2,7 +2,7 @@ import { Button, Image, Text } from "react-native";
 import ScreenContainer from "../../Components/ScreenContainer";
 import { styles } from "./styles";
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigateForward }) {
     return (
         <ScreenContainer backgroundColor="red">
             <Text style={styles.text}>Welcome to the Marvel Heroes universe!</Text>
@@ -12,7 +12,11 @@ export default function WelcomeScreen() {
                 }}
                 style={styles.logo}
             />
-            <Button color="#fc0" title="Show me the HEROES!" />
+            <Button
+                color="#fc0"
+                title="Show me the HEROES!"
+                onPress={navigateForward}
+            />
         </ScreenContainer>
     );
 }
