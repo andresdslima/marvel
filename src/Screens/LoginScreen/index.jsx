@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button, Image } from "react-native";
-import Input from "../../components/Input";
-import ScreenContainer from "../../components/ScreenContainer";
-import { authLogin } from "../../services/auth";
+import Input from "../../Components/Input";
+import ScreenContainer from "../../Components/ScreenContainer";
+import { authLogin } from "../../Services/auth";
 import { styles } from "./styles";
 
 export default function LoginScreen({ navigateForward }) {

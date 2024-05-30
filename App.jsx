@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import LoginScreen from "./screens/LoginScreen";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import HeroesScreen from "./screens/HeroesScreen";
-import HeroeDetailsScreen from "./screens/HeroeDetailsScreen";
+import LoginScreen from "./Screens/LoginScreen";
+import WelcomeScreen from "./Screens/WelcomeScreen";
+import HeroesScreen from "./Screens/HeroesScreen";
+import HeroeDetailsScreen from "./Screens/HeroeDetailsScreen";
 
 export default function App() {
   const [mockNavigation, setMockNavigation] = useState(0);
