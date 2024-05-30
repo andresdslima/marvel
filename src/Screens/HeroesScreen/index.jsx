@@ -50,8 +50,8 @@ export default function HeroesScreen({ navigateForward, navigateBackward }) {
         if (text.length > 1) {
             setCompleteHeroesList(
                 copyCompleteHeroesList.filter((hero) =>
-                    hero.name.toLowerCase().includes(text.toLowerCase())
-                )
+                    hero.name.toLowerCase().trim().includes(text.toLowerCase().trim())
+                ) // Could create a function normalizeString in helpers folder using trim() + toLowerCase()
             );
             console.log("copyCompleteHeroesList");
             console.log(copyCompleteHeroesList);
@@ -91,7 +91,7 @@ export default function HeroesScreen({ navigateForward, navigateBackward }) {
                 }}
                 horizontal={!showMore}
                 style={styles(dynamicWidth).heroesListContainer}
-            // showsHorizontalScrollIndicator={false}
+                // showsHorizontalScrollIndicator={false}
             >
                 {loading && <ActivityIndicator color="#fff" />}
                 {shouldShowErrorMsg && <Text>{errorMsg}</Text>}
@@ -112,23 +112,24 @@ export default function HeroesScreen({ navigateForward, navigateBackward }) {
                     />
                 )}
                 {/* {shouldShowHeroesHighlights && (
-          <FlatList
-            data={completeHeroesList.slice(0, 4)}
-            horizontal
-            keyExtractor={(hero) => hero.id.toString()}
-            renderItem={({ hero }) => (
-              <HeroCard
-                name={hero.name}
-                image={hero.images.sm}
-                // Send hero details via navigation here
-                onPress={navigateForward}
-              />
-            )}
-          />
-        )} */}
+                    <FlatList
+                        data={completeHeroesList.slice(0, 4)}
+                        horizontal
+                        keyExtractor={(hero) => hero.id.toString()}
+                        renderItem={({ hero }) => (
+                            <HeroCard
+                                name={hero.name}
+                                image={hero.images.sm}
+                                // Send hero details via navigation here
+                                onPress={navigateForward}
+                            />
+                        )}
+                    />
+                )} */}
                 {shouldShowCompleteHeroesList && (
                     <FlatList
-                        // Could also use showMore to determine if FlatList should have 1 or 2 columns, which image to use, etc
+                        // Could also use showMore state to determine if FlatList should have 1 or 2 columns,
+                        // which image size to use, etc
                         data={completeHeroesList}
                         numColumns={2}
                         keyExtractor={(hero, i) => `hero-${i}`}
